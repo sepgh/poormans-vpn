@@ -4,7 +4,7 @@ Poorman's VPN is a project with scripts to help you redirect your internet traff
 
 ## Windows
 
-To use on Windows download the `tunnel.bat` file and move it to the folder of your choice. Then run by double clicking on it.
+To use on Windows download the [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) file and move it to the folder of your choice. Then run by double clicking on it.
 
 In first run you need to use option `0` to download `plink.exe` (which is used for Putty). You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 If you don't want to download the `plink.exe` through the script then manually download it and place it right next to `tunnel.bat`
