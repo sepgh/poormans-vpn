@@ -4,14 +4,24 @@ Poorman's VPN is a project with scripts to help you redirect your internet traff
 
 ## Windows
 
-To use on Windows download the [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) file and move it to the folder of your choice. Then run by double clicking on it.
+### Through [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat)
 
-In first run you need to use option `0` to download `plink.exe` (which is used for Putty). You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-If you don't want to download the `plink.exe` through the script then manually download it and place it right next to `tunnel.bat`
+To create tunnel on Windows, download the [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) file and move it to the folder of your choice. Then run by double clicking on it.
+
+This script requires two more windws executable files:
+
+1. `plink.exe`, used in Putty, adds ssh and tunneling support (in case windows misses it).
+You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), download it manually if you want or let the script download it for you.
+2. [`dns2socks.exe`](https://sourceforge.net/projects/dns2socks/), because we need DNS requests to also be proxied.
+
+If you download any of the above dependencies yourself, place them next to `tunnel.bat` file. 
+
+Eventually, **run `tunnel.bat` as administrator**. If you don't have the dependencies downloaded, use option `0` and the script will try to download it for you.
 
 Then you can use option `1` to connect to SSH server. There will be a socks port available on port `6060` when the connection is made.
-Your system will be configured to move the traffic to `SOCKS:localhost:6060` through Windows Registry.
+Your system will be configured to move the traffic to `SOCKS:localhost:6060` through __Windows Registry__, and send DNS traffic to `dns2socks` through network interface.
 
-To close the connection you can try `control + D` and then `control + C` if needed.
+You can exit the main batchfile window if you want. To successfully disconnect you need to use option 2 in batch file.
+
 
 **Tested on**: Windows 10
