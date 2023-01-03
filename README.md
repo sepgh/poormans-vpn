@@ -14,7 +14,7 @@ This script requires two more windws executable files:
 You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), download it manually if you want or let the script download it for you.
 2. [`dns2socks.exe`](https://sourceforge.net/projects/dns2socks/), because we need DNS requests to also be proxied.
 
-If you download any of the above dependencies yourself, place them next to `tunnel.bat` file. 
+If you download any of the above dependencies yourself, place them next to `tunnel.bat` file. You can download the full package (`tunnel.bat` and all the dependencies) from the [release](https://github.com/sepgh/poormans-vpn/releases/tag/v1.0.0).
 
 Eventually, **run `tunnel.bat` as administrator**. If you don't have the dependencies downloaded, use option `0` and the script will try to download it for you.
 
