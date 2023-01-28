@@ -81,7 +81,7 @@ The zip file from releases has both of these already so you wont need to do anyt
 
 That's all. F windows. Bye.
 
-<details>
+</details>
 
 
 
