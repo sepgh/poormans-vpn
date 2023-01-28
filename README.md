@@ -35,7 +35,13 @@ You are done.
 
 ## Mac/Linux
 
-I respect you guys for using Linux (Mac? not so much). My suggestion to you is to install `python 3` on your servers, allow the user to have access to that command and then forget anything this repository says and checkout [sshuttle](https://sshuttle.readthedocs.io/en/stable/).
+I respect you guys for using Linux (Mac? not so much). My suggestion to you is to install `python 3.7+` on your servers, allow the user to have access to that command and then forget anything this repository says and checkout [sshuttle](https://sshuttle.readthedocs.io/en/stable/).
+
+I find the command below to be the most effective solution on linux machine, but read the documentations from sshuttle for more details.
+
+```bash
+sshuttle --dns -r user@ip:port 0.0.0.0/0 --method nft --no-latency-control
+```
 
 I have created this dummy script to help our poor friends which are using windows.
 
