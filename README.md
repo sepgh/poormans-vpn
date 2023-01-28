@@ -1,27 +1,87 @@
 # Poorman's VPN
-Poorman's VPN is a project with scripts to help you redirect your internet traffic through an SSH Tunnel
+Poorman's VPN is a project with scripts to help you redirect your internet traffic through an SSH Tunnel.
 
+
+<details>
+<summary>Server</summary>
+
+## Introduction
+
+I think the description of the repository is pretty self explanatory and any one with basic knowledge of .... ok f*** it, let me explain it to you.
+
+So, SSH is a secure way of accessing your linux machine shell. You have probably seen Putty or simple `ssh` commands if you have ever connected to any linux machines out there through shell.
+
+What you can do with your SSH connection is to also route your computer network traffic to it.
+
+## Requirements
+
+You can use pretty much any machine with SSH server and user to log in as a tunnel for your network traffic. So, basic requirement is to simply create a linux user. You can search for ways to do so, but here is a basic example of what you can do in order to create a new user in your linux machine (assuming you already have `root/sudo` access to shell)
+
+```bash
+ln -s /bin/bash /bin/rbash
+mkdir /home/peter
+useradd -s /bin/rbash -d /home/peter peter
+passwrd peter
+```
+
+The snippet above creates a user with no access to bash (probably the default shell of your linux machine) and sets a password for it. Replace `peter` with username of your choice.
+
+You are done.
+
+</details>
+
+<details>
+<summary>Client</summary>
+
+## Mac/Linux
+
+I respect you guys for using Linux (Mac? not so much). My suggestion to you is to install `python 3` on your servers, allow the user to have access to that command and then forget anything this repository says and checkout [sshuttle](https://sshuttle.readthedocs.io/en/stable/).
+
+I have created this dummy script to help our poor friends which are using windows.
 
 ## Windows
 
-### Through [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat)
+### Way 1 (and only way for now!)
 
-To create tunnel on Windows, download the [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) file and move it to the folder of your choice. Then run by double clicking on it.
+This repository so far is only about this script: [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat)
+
+What it does:
+
+1. creates SSH Tunnel and opens dynamic socks port `6060` on your machine
+2. runs a DNS server (DNS Over Socks) which is ... well, obviously, DNS over Socks :|
+3. change windows proxy settings to use socks proxy that was created on step 1
+4. changes your network interface DNS settings to use DNS server that was created on step 2
+
+Running it is easy. I suggest you to download the zip package with all dependencies from [release section](https://github.com/sepgh/poormans-vpn/releases/tag/v1.0.0). Or just download `tunnel.bat` file from the repository. In either case, move the content you downloaded into a specific folder of your choice and if you downloaded the zip file, extract it.
+
+Then right click on tunnel.bat and **run it as administrator**. The script will give you some choices:
+
+- `0` download dependencies (you already have them if you downloaded zip file)
+- `1` connect
+- `2` disconnect
+
+The rest is straight forward. After connecting you can feel free to close the main window (tunnel.bat)
+
+**Notes:**
+
+1. Closing windows of the applications (TUNNEL and DNS) is not enough for full disconnect. You need to run `tunnel.bat` as an administrator again and choose second option to disconnect.
+2. `DNSToSocks` has a bug that if you select something or click on its screen it will freeze and will F things up. Don't do it.
+
+**Requirements details:**
 
 This script requires two more windws executable files:
 
 1. `plink.exe`, used in Putty, adds ssh and tunneling support (in case windows misses it).
-You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), download it manually if you want or let the script download it for you.
+You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 2. [`dns2socks.exe`](https://sourceforge.net/projects/dns2socks/), because we need DNS requests to also be proxied.
 
-If you download any of the above dependencies yourself, place them next to `tunnel.bat` file. You can download the full package (`tunnel.bat` and all the dependencies) from the [release](https://github.com/sepgh/poormans-vpn/releases/tag/v1.0.0).
-
-Eventually, **run `tunnel.bat` as administrator**. If you don't have the dependencies downloaded, use option `0` and the script will try to download it for you.
-
-Then you can use option `1` to connect to SSH server. There will be a socks port available on port `6060` when the connection is made.
-Your system will be configured to move the traffic to `SOCKS:localhost:6060` through __Windows Registry__, and send DNS traffic to `dns2socks` through network interface.
-
-You can exit the main batchfile window if you want. To successfully disconnect you need to use option 2 in batch file.
-
+The zip file from releases has both of these already so you wont need to do anything. You can download them manually and place them next to `tunnel.bat` if you need. Otherwise you can use option `0` so the script download these for you.
 
 **Tested on**: Windows 10
+
+That's all. F windows. Bye.
+
+<details>
+
+
+
