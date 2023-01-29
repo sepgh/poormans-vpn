@@ -45,6 +45,10 @@ sshuttle --dns -r user@ip:port 0.0.0.0/0 --method nft --no-latency-control
 
 I have created this dummy script to help our poor friends which are using windows.
 
+## Android
+
+Use [SSH Injector](https://play.google.com/store/apps/details?id=com.technore.sshinjector&hl=en&gl=US&pli=1)
+
 ## Windows
 
 ### Way 1 (and only way for now!)
