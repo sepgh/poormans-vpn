@@ -13,9 +13,9 @@ So, SSH is a secure way of accessing your linux machine shell. You have probably
 
 What you can do with your SSH connection is to also route your computer network traffic to it.
 
-## Requirements
+## Solution one:
 
-You can use pretty much any machine with SSH server and user to log in as a tunnel for your network traffic. So, basic requirement is to simply create a linux user. You can search for ways to do so, but here is a basic example of what you can do in order to create a new user in your linux machine (assuming you already have `root/sudo` access to shell)
+You can use pretty much any linux machine with SSH server and user to log in as a tunnel for your network traffic. So, basic requirement is to simply create a linux user. You can search for ways to do so, but here is a basic example of what you can do in order to create a new user in your linux machine (assuming you already have `root/sudo` access to shell)
 
 ```bash
 ln -s /bin/bash /bin/rbash
@@ -27,6 +27,10 @@ passwrd peter
 The snippet above creates a user with no access to bash (probably the default shell of your linux machine) and sets a password for it. Replace `peter` with username of your choice.
 
 You are done.
+
+## Solution two:
+
+Use my [poorly written sshd server tool](https://github.com/sepgh/poormans-vpn-sshd-server).
 
 </details>
 
