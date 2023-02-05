@@ -40,6 +40,7 @@ goto MENU
 :1
 set /p "ip=Enter IP:"
 set /p "username=Enter Username:"
+set /p "port=Port:"
 
 
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1 /f
@@ -49,7 +50,7 @@ netsh interface ipv4 add dnsserver "%interfaceName%" 127.0.0.1
 
 start /B "DNS" "%~dp0dns2socks.exe" 127.0.0.1:6060 8.8.8.8:53 127.0.0.1:53
 timeout 2
-start "TUNNEL" "%~dp0plink.exe" -ssh %ip% -D 6060 -l %username% -no-antispoof
+start "TUNNEL" "ssh" %username%@%ip% -D 6060 -p %port%
 
 
 goto MENU
