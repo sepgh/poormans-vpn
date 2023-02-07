@@ -11,7 +11,7 @@ I think the description of the repository is pretty self explanatory and any one
 
 So, SSH is a secure way of accessing your linux machine shell. You have probably seen Putty or simple `ssh` commands if you have ever connected to any linux machines out there through shell.
 
-What you can do with your SSH connection is to also route your computer network traffic to it.
+What you can do with your SSH connection is to also route your computer network traffic to it and thats what this script will achieve. It will use **Dyanmic Port Forwarding** from an established SSH connection.
 
 ## Solution one:
 
@@ -39,7 +39,7 @@ Use my [poorly written sshd server tool](https://github.com/sepgh/poormans-vpn-s
 
 ## Mac/Linux
 
-I respect you guys for using Linux (Mac? not so much). My suggestion to you is to install `python 3.7+` on your servers, allow the user to have access to that command and then forget anything this repository says and checkout [sshuttle](https://sshuttle.readthedocs.io/en/stable/).
+I respect you guys for using Linux (Mac? Meeh!). My suggestion to you is to install `python 3.7+` on your servers, allow the user to have access to that command and then forget anything this repository says and checkout [sshuttle](https://sshuttle.readthedocs.io/en/stable/). **This does not work with solution two of the server side**
 
 I find the command below to be the most effective solution on linux machine, but read the documentations from sshuttle for more details.
 
@@ -47,7 +47,7 @@ I find the command below to be the most effective solution on linux machine, but
 sshuttle --dns -r user@ip:port 0.0.0.0/0 --method nft --no-latency-control
 ```
 
-I have created this dummy script to help our poor friends which are using windows.
+I have created this repository to help our poor friends which are using windows.
 
 ## Android
 
@@ -57,7 +57,7 @@ Use [SSH Injector](https://play.google.com/store/apps/details?id=com.technore.ss
 
 ### Way 1 (and only way for now!)
 
-This repository so far is only about this script: [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat)
+This repository so far is only about these two scripts: [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) (Which is the script that we should run, aka our entry point)  & [`ssh-alive.bat`](https://github.com/sepgh/poormans-vpn/blob/main/ssh-alive.bat)
 
 What it does:
 
@@ -65,8 +65,9 @@ What it does:
 2. runs a DNS server (DNS Over Socks) which is ... well, obviously, DNS over Socks :|
 3. change windows proxy settings to use socks proxy that was created on step 1
 4. changes your network interface DNS settings to use DNS server that was created on step 2
+5. using `ssh-alive.bat` we will try to keep the SSH connection alive
 
-Running it is easy. I suggest you to download the zip package with all dependencies from [release section](https://github.com/sepgh/poormans-vpn/releases/tag/v1.0.0). Or just download `tunnel.bat` file from the repository. In either case, move the content you downloaded into a specific folder of your choice and if you downloaded the zip file, extract it.
+Running it is easy. I suggest you to download the zip package with all dependencies from [release section](https://github.com/sepgh/poormans-vpn/releases/tag/v2.1.0). Or just download `tunnel.bat` file from the repository. In either case, move the content you downloaded into a specific folder of your choice and if you downloaded the zip file, extract it.
 
 Then right click on tunnel.bat and **run it as administrator**. The script will give you some choices:
 
@@ -93,7 +94,7 @@ The zip file from releases has both of these already so you wont need to do anyt
 
 **Tested on**: Windows 10
 
-That's all. F windows. Bye.
+That's all. **F windows** dude! Bye!
 
 </details>
 
