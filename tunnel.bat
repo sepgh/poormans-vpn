@@ -41,6 +41,7 @@ goto MENU
 set /p "ip=Enter IP:"
 set /p "username=Enter Username:"
 set /p "port=Port:"
+set /p "pass=Password:"
 
 
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 1 /f
@@ -50,7 +51,7 @@ netsh interface ipv4 add dnsserver "%interfaceName%" 127.0.0.1
 
 start /B "DNS" "%~dp0dns2socks.exe" 127.0.0.1:6060 8.8.8.8:53 127.0.0.1:53
 timeout 2
-start "TUNNEL" "ssh" %username%@%ip% -D 6060 -p %port%
+start "TUNNEL" "%~dp0ssh-alive.bat" %username% %ip% %port% %pass%
 
 
 goto MENU
@@ -60,12 +61,14 @@ goto MENU
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyEnable /t REG_DWORD /d 0 /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings" /v ProxyServer  /d "" /t REG_SZ /f
 netsh interface ipv4 set dnsserver "%interfaceName%" source=dhcp
-netsh interface ipv4 set dnsserver "%interfaceName%" source=dhcp
-TASKKILL /FI "WINDOWTITLE eq DNS"
-TASKKILL /FI "WINDOWTITLE eq TUNNEL"
+TASKKILL /FI "WINDOWTITLE eq DNS"  2>nul 1>nul 
+TASKKILL /FI "WINDOWTITLE eq TUNNEL"  2>nul 1>nul
+TASKKILL /FI "WINDOWTITLE eq Administrator: TUNNEL"  2>nul 1>nul
+TASKKILL /FI "WINDOWTITLE eq Administrator:  TUNNEL"  2>nul 1>nul
 
 goto end
 
 
 :end
+echo Bye
 PAUSE
