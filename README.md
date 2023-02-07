@@ -97,5 +97,7 @@ That's all. F windows. Bye.
 
 </details>
 
+---
 
+If you enjoy this project consider `star` and share.
 
