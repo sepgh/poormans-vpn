@@ -1,6 +1,8 @@
 # Poorman's VPN
 Poorman's VPN is a project with scripts to help you redirect your internet traffic through an SSH Tunnel.
 
+Check out the successor project, [Mooshak](https://github.com/sepgh/mooshak), with websocket support and better documentations.
+
 ---
 
 Ever cried about having to use Putty to setup Dynamic Port Forwarding through SSH Tunnel? Ever been bothered by paid softwares that don't do all of the job right? No? Good! Yes? Well I have found a new reason for you to cry. Read the description below to setup a client if you already have a server with SSH access (no root required), or read server section to get some clues on how to run a SSH server.
