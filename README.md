@@ -9,7 +9,7 @@ Ever cried about having to use Putty to setup Dynamic Port Forwarding through SS
 
 
 <details>
-<summary>Server</summary>
+<summary><h2>server</h2></summary>
 
 ## Introduction
 
@@ -38,10 +38,14 @@ You are done.
 
 Use my [poorly written sshd server tool](https://github.com/sepgh/poormans-vpn-sshd-server).
 
+## Solution three:
+
+Use [Mooshak](https://github.com/sepgh/mooshak) server.
+
 </details>
 
 <details>
-<summary>Client</summary>
+<summary><h2>Client</h2></summary>
 
 ## Mac/Linux
 
