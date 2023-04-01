@@ -65,7 +65,7 @@ Use [SSH Injector](https://play.google.com/store/apps/details?id=com.technore.ss
 
 ## Windows
 
-### Way 1 (and only way for now!)
+### Solution 1
 
 This repository so far is only about these two scripts: [`tunnel.bat`](https://github.com/sepgh/poormans-vpn/blob/main/tunnel.bat) (Which is the script that we should run, aka our entry point)  & [`ssh-alive.bat`](https://github.com/sepgh/poormans-vpn/blob/main/ssh-alive.bat)
 
@@ -103,6 +103,13 @@ You can [check the checksum here](https://www.chiark.greenend.org.uk/~sgtatham/p
 The zip file from releases has both of these already so you wont need to do anything. You can download them manually and place them next to `tunnel.bat` if you need. Otherwise you can use option `0` so the script download these for you.
 
 **Tested on**: Windows 10
+
+
+### Solution 2
+
+Use [Mooshak](https://sepgh.github.io/mooshak/docs/clients/windows/). Currently Mooshak is just python wrapper of the batch script above.
+
+---
 
 That's all. **F windows** dude! Bye!
 
